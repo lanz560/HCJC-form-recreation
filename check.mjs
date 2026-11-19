@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { visibleSections } from './dist/rules.mjs';
+const design = JSON.parse(readFileSync(new URL('./dist/form.json', import.meta.url)));
+assert.deepEqual(visibleSections(design, {}).flatMap((v,i) => v ? [i] : []), [0]);
+assert.deepEqual(visibleSections(design, {19:['10180']}).flatMap((v,i) => v ? [i] : []), [0,1]);
+const judge = {19:['10181'],2:['10182']};
+let visible = visibleSections(design, judge);
+assert(visible[4] && visible[7] && visible[10] && visible[12]);
+assert(!visible[1] && !visible[3] && !visible[5] && !visible[6] && !visible[8]);
+visible = visibleSections(design, {...judge,23:['10184','10186'],38:['10187'],29:['10189'],45:['10198']});
+for (const index of [5,6,8,9,11]) assert(visible[index]);
+visible = visibleSections(design, {...judge,19:['10180'],23:['10184'],38:['10187'],29:['10189'],45:['10198']});
+assert.deepEqual(visible.flatMap((v,i) => v ? [i] : []), [0,1]);
+visible = visibleSections(design, {...judge,2:['10183'],23:['10184'],38:['10187'],29:['10189']});
+assert.deepEqual(visible.flatMap((v,i) => v ? [i] : []), [0,2,3]);
+console.log('Conditional form checks passed.');
