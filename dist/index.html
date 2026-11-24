@@ -1,28 +1,72 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Complaint · Commission on Judicial Conduct</title>
-  <meta name="description" content="Recreation of the Commission on Judicial Conduct complaint form.">
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="app.js"></script>
-</head>
-<body>
-  <header><a href="./" class="brand"><img src="assets/logo" alt="Commission on Judicial Conduct"></a><span class="replica">Form recreation</span></header>
-  <main>
-    <nav aria-label="Breadcrumb"><a href="https://judicialconductcommission.atlassian.net/servicedesk/customer/portals">Commission on Judicial Conduct</a><span>/</span><span>Commission on Judicial Conduct</span></nav>
-    <article>
-      <div class="portal"><img src="assets/portal-logo" alt=""><span>Commission on Judicial Conduct</span></div>
-      <div class="title"><img src="assets/complaint" alt=""><h1>Complaint</h1></div>
-      <p class="required-note">Required fields are marked with an asterisk <span class="required">*</span></p>
-      <form id="complaint-form">
-        <div id="questions" aria-busy="true"><p>Loading form…</p></div>
-        <p class="demo-note">This is a recreation. Your information stays on this page and is not sent to the Commission.</p>
-        <div class="actions"><button type="submit" id="submit" disabled>Submit</button><button type="reset" class="secondary">Cancel</button></div>
-        <p id="result" role="status" tabindex="-1"></p>
-      </form>
-    </article>
-  </main>
-  <footer>Powered by <a href="https://www.atlassian.com/software/jira/service-management">Jira Service Management</a></footer>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5f7">
+    <title>Complaint · Commission on Judicial Conduct</title>
+    <meta
+      name="description"
+      content="Recreation of the Commission on Judicial Conduct complaint form."
+    >
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="./" class="brand">
+        <img src="assets/logo" alt="Commission on Judicial Conduct">
+      </a>
+      <span class="replica">Form recreation</span>
+    </header>
+
+    <div class="banner" role="img" aria-label="Hawaii State Capitol building"></div>
+
+    <main>
+      <nav aria-label="Breadcrumb">
+        <a href="https://judicialconductcommission.atlassian.net/servicedesk/customer/portals">
+          Commission on Judicial Conduct
+        </a>
+        <span aria-hidden="true">/</span>
+        <a href="./">Commission on Judicial Conduct</a>
+      </nav>
+
+      <article>
+        <div class="portal">
+          <img src="assets/portal-logo" alt="">
+          <span>Commission on Judicial Conduct</span>
+        </div>
+        <div class="title">
+          <img src="assets/complaint" alt="">
+          <h1>Complaint</h1>
+        </div>
+        <p class="required-note">
+          Required fields are marked with an asterisk
+          <span class="required" aria-label="required">*</span>
+        </p>
+
+        <form id="complaint-form">
+          <div id="questions" aria-busy="true">
+            <p>Loading form…</p>
+          </div>
+          <p class="demo-note">
+            This is not a real website. Your information stays on this page and is
+            not sent to the Commission.
+          </p>
+          <div class="actions">
+            <button type="submit" id="submit" disabled>Submit</button>
+            <button type="reset" class="secondary">Cancel</button>
+          </div>
+          <p id="result" role="status" tabindex="-1"></p>
+        </form>
+      </article>
+    </main>
+
+    <footer>
+      Powered by
+      <a href="https://www.atlassian.com/software/jira/service-management">
+        Jira Service Management (not actually)
+      </a>
+    </footer>
+  </body>
 </html>

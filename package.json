@@ -1,0 +1,12 @@
+{
+  "name": "hcjc-form-recreation",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm run build && concurrently -k -n css,serve \"tailwindcss -i ./src/style.css -o ./dist/style.css --watch\" \"node scripts/dev-server.mjs\"",
+    "build": "tailwindcss -i ./src/style.css -o ./dist/style.css --minify"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7",
+    "tailwindcss": "^3.4.19"
+  }
+}
