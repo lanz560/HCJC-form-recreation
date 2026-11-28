@@ -8,7 +8,7 @@ export const choices = {
   45: [['party', 'Party to the case'], ['attorney', 'Attorney'], ['witness', 'Witness'], ['10198', 'Other']]
 };
 
-function questionIds(node) {
+export function questionIds(node) {
   return node.type === 'extension' ? [String(node.attrs.parameters.id)] : (node.content || []).flatMap(questionIds);
 }
 

@@ -1,0 +1,38 @@
+generator client {
+  provider               = "prisma-client"
+  output                 = "../server/generated/prisma"
+  moduleFormat           = "esm"
+  generatedFileExtension = "mts"
+  importFileExtension     = "mts"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ComplaintSubmission {
+  id             String                @id @default(uuid()) @db.Uuid
+  createdAt      DateTime              @default(now()) @db.Timestamptz(3)
+  formTemplateId String                @db.Uuid
+  firstName      String                @db.VarChar(200)
+  middleName     String?               @db.VarChar(200)
+  lastName       String                @db.VarChar(200)
+  email          String?               @db.VarChar(320)
+  answers        Json
+  attachments    ComplaintAttachment[]
+
+  @@index([createdAt])
+  @@map("complaint_submissions")
+}
+
+model ComplaintAttachment {
+  id           String              @id @default(uuid()) @db.Uuid
+  submissionId String              @db.Uuid
+  submission   ComplaintSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  filename     String              @db.VarChar(255)
+  byteSize     Int
+  content      Bytes
+
+  @@index([submissionId])
+  @@map("complaint_attachments")
+}
